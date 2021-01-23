@@ -13,6 +13,7 @@
 		2430F79125BC6B5500DAABBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2430F78F25BC6B5500DAABBD /* Main.storyboard */; };
 		2430F79325BC6B5500DAABBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2430F79225BC6B5500DAABBD /* Assets.xcassets */; };
 		2430F79625BC6B5500DAABBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2430F79425BC6B5500DAABBD /* LaunchScreen.storyboard */; };
+		2430F7A025BC7B8400DAABBD /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430F79F25BC7B8400DAABBD /* CircularButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2430F79225BC6B5500DAABBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2430F79525BC6B5500DAABBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2430F79725BC6B5500DAABBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2430F79F25BC7B8400DAABBD /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				2430F79225BC6B5500DAABBD /* Assets.xcassets */,
 				2430F79425BC6B5500DAABBD /* LaunchScreen.storyboard */,
 				2430F79725BC6B5500DAABBD /* Info.plist */,
+				2430F79F25BC7B8400DAABBD /* CircularButton.swift */,
 			);
 			path = SimonSays;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2430F7A025BC7B8400DAABBD /* CircularButton.swift in Sources */,
 				2430F78E25BC6B5500DAABBD /* ViewController.swift in Sources */,
 				2430F78A25BC6B5500DAABBD /* AppDelegate.swift in Sources */,
 				2430F78C25BC6B5500DAABBD /* SceneDelegate.swift in Sources */,
