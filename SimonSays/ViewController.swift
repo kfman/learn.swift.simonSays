@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     var colorSequence = [Int]()
     var colorsToTap = [Int]()
     
-    
+    var gameEnded = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,6 +31,13 @@ class ViewController: UIViewController {
         playerLabels = playerLabels.sorted(){            $0.tag < $1.tag        }
         scoreLabels = scoreLabels.sorted(){            $0.tag < $1.tag        }
         createNewGame()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if gameEnded {
+            gameEnded = false
+            createNewGame()
+        }
     }
 
     func createNewGame(){
@@ -41,6 +49,24 @@ class ViewController: UIViewController {
             button.alpha = 0.5
             button.isEnabled = false
         }
+        
+        currentPlayer = 0
+        scores = [0,0]
+        playerLabels[currentPlayer].alpha = 1.0
+        playerLabels[1].alpha = 0.75
+        updateScoreLabels()
+    }
+    
+    func updateScoreLabels(){
+        for (index,label) in scoreLabels.enumerated(){
+            label.text = "\(scores[index])"
+        }
+    }
+    
+    func switchPlayers(){
+        playerLabels[currentPlayer].alpha = 0.75
+        currentPlayer = currentPlayer == 0 ? 1 : 0
+        playerLabels[currentPlayer].alpha = 1.0
     }
         
     func addNewColor(){
@@ -73,9 +99,32 @@ class ViewController: UIViewController {
         
     }
     
+    func endGame(){
+        actionButton.setTitle("Player \(currentPlayer + 1) wins", for: .normal)
+        gameEnded = true
+    }
+    
     @IBAction func colorButtonHandle(_ sender: CircularButton) {
-        print("Button \(sender.tag) tapped")
+        if sender.tag == colorsToTap.removeFirst(){
+            
+        }else{
+            for button in colorButtons{
+                button.isEnabled = false
+            }
+            endGame()
+            return
+        }
         
+        if colorsToTap.isEmpty{
+            for button in colorButtons{
+                button.isEnabled = false
+            }
+            scores[currentPlayer] += 1
+            updateScoreLabels()
+            switchPlayers()
+            actionButton.setTitle("Continue", for: .normal)
+            actionButton.isEnabled = true
+        }
     }
     
     @IBAction func actionButtonHandler(_ sender: UIButton) {
